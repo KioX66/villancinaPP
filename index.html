@@ -66,12 +66,57 @@
     color: var(--text-muted);
     margin: 0 0 10px;
   }
+  h3 {
+    font-size: 0.95rem;
+    font-weight: 700;
+    margin: 18px 0 6px;
+  }
+  h3:first-of-type { margin-top: 4px; }
   p {
     font-size: 0.95rem;
     margin: 0 0 10px;
   }
   p:last-child { margin-bottom: 0; }
+  ul {
+    font-size: 0.95rem;
+    margin: 0 0 10px;
+    padding-left: 20px;
+  }
+  li { margin-bottom: 6px; }
+  li:last-child { margin-bottom: 0; }
   a { color: var(--primary); }
+  .tabla-scroll {
+    overflow-x: auto;
+    margin: 0 0 10px;
+  }
+  table {
+    border-collapse: collapse;
+    width: 100%;
+    min-width: 460px;
+    font-size: 0.85rem;
+  }
+  th, td {
+    text-align: left;
+    padding: 8px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: top;
+  }
+  th {
+    font-weight: 700;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+  }
+  tr:last-child td { border-bottom: none; }
+  code {
+    font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+    font-size: 0.85em;
+    background: var(--bg);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    padding: 1px 4px;
+  }
   footer {
     margin-top: 32px;
     font-size: 0.8rem;
@@ -84,88 +129,294 @@
 <main>
   <header>
     <h1>Política de privacidad</h1>
-    <p class="updated">Última actualización: 14 de julio de 2026</p>
+    <p class="updated">Última actualización: 23 de septiembre de 2026</p>
   </header>
 
   <section>
-    <h2>1. Responsable</h2>
+    <h2>1. Quién es el responsable</h2>
     <p>
-      Villancina es una aplicación informativa sobre el programa de las fiestas de
-      San Roque de Villar de la Encina (Cuenca) y los resultados de sus
-      competiciones. No es una aplicación comercial y no recopila datos con fines
-      publicitarios.
+      Villancina es una aplicación sin ánimo de lucro sobre el programa de las fiestas
+      de San Roque de Villar de la Encina (Cuenca) y los resultados de sus competiciones.
+      No es una aplicación comercial, no muestra publicidad y no vende ni cede datos a
+      nadie.
+    </p>
+    <p>
+      Responsable del tratamiento: <strong>Pedro Andrés</strong>, desarrollador y
+      administrador de la aplicación.<br />
+      Contacto: <a href="mailto:pedroandres66@gmail.com">pedroandres66@gmail.com</a>
+    </p>
+    <p>
+      Esta política cubre tanto la aplicación para Android y iOS como la versión web
+      (<a href="https://villancina.heipdesing.com">villancina.heipdesing.com</a>).
     </p>
   </section>
 
   <section>
-    <h2>2. Datos que tratamos</h2>
+    <h2>2. Qué datos tratamos</h2>
     <p>
-      La aplicación no requiere registro ni cuenta de usuario y no solicita datos
-      personales como nombre, correo electrónico o teléfono. Los contenidos que se
-      muestran (programa de actos, competiciones, participantes y resultados) son
-      datos públicos de las fiestas, no datos personales de quien usa la app.
+      Villancina no tiene registro ni cuentas de usuario: se puede consultar todo el
+      programa, las competiciones y los resultados sin dar ningún dato. Ahora bien, hay
+      tres casos concretos en los que sí se tratan datos, y conviene que los conozcas.
+    </p>
+
+    <h3>a) Identificador del dispositivo (estadísticas de uso)</h3>
+    <p>
+      La primera vez que abres la aplicación se genera un identificador aleatorio
+      (un UUID del tipo <code>3f7a1c9e-…</code>) que se guarda en tu propio dispositivo y
+      se envía a nuestro servidor junto con el tipo de plataforma (app de Android, app de
+      iOS, navegador de móvil o de ordenador) y la fecha de tu última visita.
+    </p>
+    <p>
+      Sirve para dos cosas y para nada más: saber cuánta gente usa la aplicación
+      (estadísticas propias, que solo consulta el administrador) y evitar que un mismo
+      móvil envíe solicitudes de inscripción duplicadas a una misma competición.
+    </p>
+    <p>
+      Es un número aleatorio: no lleva tu nombre, no se cruza con tu teléfono, no rastrea
+      lo que haces en otras webs o aplicaciones, y no se comparte con terceros ni se usa
+      para publicidad. Aun así, al ser un identificador persistente, lo tratamos como dato
+      personal y por eso te lo explicamos aquí y puedes desactivarlo (apartado 4).
+    </p>
+
+    <h3>b) Inscripción en competiciones</h3>
+    <p>
+      Si te apuntas a una competición desde la aplicación, se recogen:
+    </p>
+    <ul>
+      <li>
+        <strong>Nombre o nombre del equipo</strong> (obligatorio). Es el que aparece
+        públicamente en la lista de inscritos, en los emparejamientos y en la
+        clasificación de esa competición.
+      </li>
+      <li>
+        <strong>Teléfono</strong> (opcional). Solo lo ve el organizador de las fiestas,
+        y únicamente para avisarte de un cambio de hora, una confirmación o una
+        incidencia durante la competición. Nunca se publica en la aplicación ni se usa
+        para nada más, y se borra automáticamente en cuanto la competición termina
+        (ver apartado 5).
+      </li>
+    </ul>
+    <p>
+      Los resultados y clasificaciones de las competiciones son información pública de
+      las fiestas y se muestran a todo el mundo.
+    </p>
+
+    <h3>c) Notificaciones (avisos push)</h3>
+    <p>
+      Si aceptas recibir avisos, tu dispositivo genera un identificador de notificaciones
+      (token) que se envía a Firebase Cloud Messaging, el servicio de Google que reparte
+      los mensajes. Sirve para enviarte avisos del programa o de la competición que sigas,
+      y deja de funcionar en cuanto desactivas las notificaciones.
     </p>
   </section>
 
   <section>
-    <h2>3. Datos técnicos</h2>
+    <h2>3. Con qué base legal</h2>
+    <ul>
+      <li>
+        <strong>Estadísticas de uso</strong>: interés legítimo (art. 6.1.f del RGPD) en
+        conocer el alcance de una aplicación gratuita del pueblo. Es una medición propia,
+        agregada, sin perfilado y sin terceros, y puedes excluirte cuando quieras.
+      </li>
+      <li>
+        <strong>Inscripción en competiciones</strong>: tu consentimiento, que das al
+        rellenar y enviar el formulario voluntariamente.
+      </li>
+      <li>
+        <strong>Notificaciones</strong>: tu consentimiento, que das al aceptar el permiso
+        de avisos que pide el móvil.
+      </li>
+      <li>
+        <strong>Funcionamiento básico de la aplicación</strong>: es necesario para
+        prestarte el servicio que has pedido al abrirla.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>4. Qué se guarda en tu dispositivo (cookies y almacenamiento local)</h2>
     <p>
-      Como cualquier aplicación móvil, las tiendas de aplicaciones (Google Play,
-      App Store) y el sistema operativo pueden recoger información técnica básica
-      (modelo de dispositivo, versión del sistema, estadísticas de uso agregadas)
-      conforme a sus propias políticas de privacidad, ajenas a Villancina.
+      Villancina <strong>no usa cookies de publicidad, de redes sociales ni de rastreo de
+      terceros</strong>. Todo lo que se guarda es propio y se queda en tu dispositivo,
+      salvo el identificador del apartado 2.a, que además se envía a nuestro servidor.
+    </p>
+
+    <div class="tabla-scroll">
+      <table>
+        <thead>
+          <tr>
+            <th>Qué</th>
+            <th>Para qué</th>
+            <th>Cuánto dura</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><code>villancina_device_id</code><br />(cookie y almacenamiento local)</td>
+            <td>Identificador aleatorio del dispositivo: estadísticas de uso y control de inscripciones duplicadas.</td>
+            <td>13 meses</td>
+          </tr>
+          <tr>
+            <td><code>villancina_device_registered_at</code></td>
+            <td>Fecha del último registro, para no repetir el aviso al servidor en cada recarga.</td>
+            <td>13 meses</td>
+          </tr>
+          <tr>
+            <td><code>villancina_estadisticas_excluido</code></td>
+            <td>Recuerda que has pedido no aparecer en las estadísticas.</td>
+            <td>Hasta que lo borres</td>
+          </tr>
+          <tr>
+            <td>Preferencias de la aplicación</td>
+            <td>Avisos ya descartados, competiciones que sigues, recordatorios que has puesto, noticias ya leídas y una copia del contenido para que la aplicación abra rápido.</td>
+            <td>Hasta que lo borres</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <p>
+      Salvo el identificador de dispositivo, todo lo anterior es <strong>estrictamente
+      necesario</strong> para que la aplicación funcione como esperas y no sale nunca de tu
+      móvil.
+    </p>
+
+    <h3>Cómo excluirte de las estadísticas</h3>
+    <p>
+      En la propia aplicación, entra en la pestaña <strong>Info</strong> y desactiva
+      <em>«Contar mi dispositivo en las estadísticas»</em>. Al hacerlo se borra el
+      identificador de tu dispositivo y también la fila correspondiente de nuestro
+      servidor, y se deja de enviar nada. La aplicación sigue funcionando igual, incluidas
+      las inscripciones.
+    </p>
+    <p>
+      También puedes borrar los datos del sitio desde tu navegador, o los datos de la app
+      desde los ajustes del móvil, con el mismo efecto.
     </p>
   </section>
 
   <section>
-    <h2>4. Servicios de terceros</h2>
+    <h2>5. Cuánto tiempo se conservan</h2>
+    <ul>
+      <li>
+        <strong>Datos de inscripción</strong> (nombre y teléfono): el teléfono se
+        conserva mientras dura la competición, para poder avisarte de algo durante su
+        celebración. En cuanto el organizador marca la competición como
+        <strong>finalizada</strong>, el teléfono se borra automáticamente (lo hace la
+        propia base de datos, no hace falta que nadie se acuerde). El nombre permanece
+        asociado a los resultados de esa competición, que forman parte del palmarés
+        público de las fiestas.
+      </li>
+      <li>
+        <strong>Identificador de dispositivo</strong>: 13 meses desde tu última visita.
+        Pasado ese plazo, la fila se borra del servidor en la siguiente limpieza
+        periódica.
+      </li>
+      <li>
+        <strong>Token de notificaciones</strong>: mientras tengas los avisos activados.
+        Google lo invalida solo cuando desinstalas la aplicación o revocas el permiso.
+      </li>
+    </ul>
+  </section>
+
+  <section>
+    <h2>6. Quién más interviene</h2>
     <p>
-      La app obtiene el programa, las competiciones y los resultados desde un
-      servicio de base de datos en la nube (Supabase) que actúa como alojamiento
-      de contenido. Este servicio no recibe datos personales de quien usa la app,
-      solo realiza las consultas necesarias para mostrar la información pública de
-      las fiestas.
+      Villancina no vende ni cede datos. Sí se apoya en unos pocos proveedores que actúan
+      como <em>encargados del tratamiento</em>, es decir, que solo tratan los datos para
+      prestarnos su servicio:
+    </p>
+    <ul>
+      <li>
+        <strong>Supabase</strong> — base de datos y alojamiento del contenido (programa,
+        competiciones, inscripciones y estadísticas de uso).
+      </li>
+      <li>
+        <strong>Cloudflare</strong> — alojamiento y distribución de la versión web. Su
+        medición de tráfico no usa cookies ni identifica a nadie. Puede utilizar cookies
+        técnicas de seguridad para protegerse de accesos automatizados.
+      </li>
+      <li>
+        <strong>Google (Firebase Cloud Messaging)</strong> — reparto de los avisos push,
+        solo si los activas.
+      </li>
+      <li>
+        <strong>Google Fonts</strong> — la versión web carga las tipografías desde los
+        servidores de Google, que reciben tu dirección IP al hacerlo.
+      </li>
+      <li>
+        <strong>Google Play y App Store</strong> — al descargar o actualizar la aplicación
+        recogen sus propios datos técnicos, conforme a sus políticas, ajenas a Villancina.
+      </li>
+    </ul>
+    <p>
+      Algunos de estos proveedores están en Estados Unidos o pueden tratar datos fuera de
+      la Unión Europea. Lo hacen amparados en las cláusulas contractuales tipo aprobadas
+      por la Comisión Europea o en el Marco de Privacidad de Datos UE-EE.UU.
     </p>
     <p>
-      Al pulsar "Ver en el mapa" en un evento, la app abre Google Maps con la
-      ubicación del lugar. Esa acción se realiza fuera de la app y está sujeta a
-      la política de privacidad de Google.
+      Al pulsar «Ver en el mapa» en un evento, la aplicación abre Google Maps con la
+      ubicación del lugar. Esa acción ocurre ya fuera de Villancina y se rige por la
+      política de privacidad de Google.
     </p>
   </section>
 
   <section>
-    <h2>5. Permisos del dispositivo</h2>
+    <h2>7. Permisos del dispositivo</h2>
     <p>
-      La app puede usar funciones básicas del dispositivo (como vibración táctil o
-      barra de estado) únicamente para mejorar la experiencia de uso. No accede a
-      la cámara, los contactos, la ubicación en segundo plano ni al almacenamiento
-      personal.
+      La aplicación usa funciones básicas del dispositivo (vibración táctil, barra de
+      estado) para mejorar la experiencia, y el permiso de notificaciones si lo aceptas.
+      <strong>No accede a la cámara, los contactos, el micrófono, la ubicación ni a tus
+      archivos.</strong>
     </p>
   </section>
 
   <section>
-    <h2>6. Menores de edad</h2>
+    <h2>8. Tus derechos</h2>
     <p>
-      La aplicación es de carácter informativo y puede ser usada por cualquier
-      persona sin distinción de edad, ya que no recopila datos personales.
+      Puedes pedir en cualquier momento acceder a tus datos, corregirlos, borrarlos,
+      limitar u oponerte a su tratamiento, o recibir una copia. Escribe a
+      <a href="mailto:pedroandres66@gmail.com">pedroandres66@gmail.com</a> y te
+      responderemos lo antes posible.
+    </p>
+    <p>
+      En la práctica, lo más habitual se resuelve solo: para las estadísticas tienes el
+      interruptor del apartado 4, y para una inscripción basta con avisar al organizador
+      para que la retire.
+    </p>
+    <p>
+      Si crees que no hemos atendido bien tu solicitud, puedes reclamar ante la Agencia
+      Española de Protección de Datos
+      (<a href="https://www.aepd.es" target="_blank" rel="noopener">www.aepd.es</a>).
     </p>
   </section>
 
   <section>
-    <h2>7. Cambios en esta política</h2>
+    <h2>9. Menores de edad</h2>
     <p>
-      Esta política puede actualizarse si cambian las funciones de la app. Los
-      cambios relevantes se reflejarán en esta misma página, indicando la fecha de
-      la última actualización.
+      La aplicación es informativa y puede usarla cualquier persona. En las competiciones
+      del pueblo participan menores: si un menor de 14 años se inscribe, damos por hecho
+      que lo hace con el conocimiento de sus padres o tutores, igual que en la inscripción
+      presencial de toda la vida. Si eres padre, madre o tutor y quieres que retiremos los
+      datos de un menor, escríbenos y lo hacemos de inmediato.
     </p>
   </section>
 
   <section>
-    <h2>8. Contacto</h2>
+    <h2>10. Cambios en esta política</h2>
     <p>
-      Para cualquier consulta sobre esta política de privacidad, puedes contactar
-      con el equipo organizador de las fiestas de San Roque de Villar de la Encina
-      en <a href="mailto:pedroandres66@gmail.com">pedroandres66@gmail.com</a>.
+      Esta política puede actualizarse si cambian las funciones de la aplicación. Los
+      cambios relevantes se reflejarán en esta misma página, con su fecha de última
+      actualización arriba.
+    </p>
+  </section>
+
+  <section>
+    <h2>11. Contacto</h2>
+    <p>
+      Para cualquier consulta sobre privacidad, o sobre las fiestas de San Roque de Villar
+      de la Encina, escribe a
+      <a href="mailto:pedroandres66@gmail.com">pedroandres66@gmail.com</a>.
     </p>
   </section>
 
